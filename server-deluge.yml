@@ -3,4 +3,4 @@
   hosts: all
   roles:
     - { role: deluge_setup, become: true }
-    - ( role: nfs_mounts, become: true } 
+    - { role: nfs_mounts, become: true } 
