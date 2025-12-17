@@ -1,0 +1,23 @@
+- name: "Ensure existence of {{ ans_config_dir}}"
+  file:
+    path: "{{ ans_config_dir }}"
+    state: directory
+
+- name: Ensure facts dir exists
+  file:
+    path: "{{ facts_dir }}"
+    state: directory
+
+- set_fact:
+    receipt_contents:
+      product: "{{ package.name }}"
+      version: "{{ package.version }}"
+      release: "{{ package.release }}"
+      state: installed
+      install_timestamp: "{{ ansible_date_time.epoch }}"
+
+- name: Write machine information to local fact
+  copy:
+    content: "{{ receipt_contents | to_json }}"
+    dest: "{{ facts_dir }}/{{ receipt_name }}.fact"
+  when: receipt_contents is defined

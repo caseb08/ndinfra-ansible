@@ -1,0 +1,20 @@
+---
+
+# Receipt stuff
+ans_config_dir: /etc/ansible
+facts_dir: "{{ ans_config_dir }}/facts.d"
+
+redhat:
+  - RedHat
+  - CentOS
+  - AlmaLinux
+  - Rocky
+  - Fedora
+  - Scientific
+
+debian:
+  - Debian
+  - Ubuntu
+  - Pop!_OS
+  - Linux Mint
+  - linuxmint
