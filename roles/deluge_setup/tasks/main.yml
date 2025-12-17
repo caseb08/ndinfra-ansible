@@ -1,5 +1,5 @@
 ---
-- name: "Install {{ package.name }} {{package.version }}-{{ package.release }}"
+- name: Deluge and deluge-web
   include_tasks: install.yml
 
 - name: Write receipt

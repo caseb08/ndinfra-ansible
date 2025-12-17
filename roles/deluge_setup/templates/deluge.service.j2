@@ -1,12 +1,12 @@
 [Unit]
 Description=Deluge Bittorrent Client Daemon
-Documentation=man:deluged
+Documentation=man:deluge
 After=network-online.target
 
 [Service]
 Type=simple
 UMask=007
-ExecStart=/usr/bin/deluged -d
+ExecStart=/usr/bin/deluge -d
 Restart=on-failure
 TimeoutStopSec=300
 
