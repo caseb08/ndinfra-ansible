@@ -1,0 +1,5 @@
+---
+- name: Install Deluge and Deluge-web
+  hosts: all
+  roles:
+    - { role: deluge_setup, become: true }

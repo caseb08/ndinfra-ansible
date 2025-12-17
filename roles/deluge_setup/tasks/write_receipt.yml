@@ -10,14 +10,12 @@
 
 - set_fact:
     receipt_contents:
-      product: "{{ package.name }}"
-      version: "{{ package.version }}"
-      release: "{{ package.release }}"
+      product: "deluged and deluge-web"
       state: installed
       install_timestamp: "{{ ansible_date_time.epoch }}"
 
 - name: Write machine information to local fact
   copy:
     content: "{{ receipt_contents | to_json }}"
-    dest: "{{ facts_dir }}/{{ receipt_name }}.fact"
+    dest: "{{ facts_dir }}/deluge.fact"
   when: receipt_contents is defined

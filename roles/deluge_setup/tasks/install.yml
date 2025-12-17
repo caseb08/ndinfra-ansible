@@ -7,7 +7,7 @@
 - name: Install Deluge packages (Ubuntu)
   apt:
     name:
-      - deluge
+      - deluged
       - deluge-web
     state: present
     update_cache: yes
@@ -17,8 +17,6 @@
   user:
     name: deluge
     system: yes
-    shell: /bin/false
-    group: deluge
     create_home: yes
     home: /var/lib/deluge
     comment: "Deluge Service"
@@ -29,7 +27,7 @@
     state: directory
     mode: '0755'
   loop:
-    - deluge
+    - deluged
     - deluge-web
 
 - name: Deploy systemd service files
@@ -38,7 +36,7 @@
     dest: "/etc/systemd/system/{{ item }}.service"
     mode: '0644'
   loop:
-    - deluge
+    - deluged
     - deluge-web
 
 - name: Deploy user override configurations
@@ -50,7 +48,7 @@
     dest: "/etc/systemd/system/{{ item }}.service.d/user.conf"
     mode: '0644'
   loop:
-    - deluge
+    - deluged
     - deluge-web
 
 - name: Enable and start Deluge services
@@ -59,5 +57,5 @@
     enabled: yes
     state: started
   loop:
-    - deluge
+    - deluged
     - deluge-web
