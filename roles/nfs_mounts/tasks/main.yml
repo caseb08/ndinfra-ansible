@@ -1,0 +1,8 @@
+- name: Mount NFS volume specified
+  ansible.posix.mount:
+    src: "{{ source }}"
+    path: "{{ mount_path }}"
+    opts: "{{ mount_options }}"
+    boot: true
+    state: mounted
+    fstype: nfs

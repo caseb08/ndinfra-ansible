@@ -1,0 +1,8 @@
+---
+
+
+host:
+share:
+source: "{{ host }}:{{ share }}"
+mount_path:
+mount_options: "rw,sync,hard"
