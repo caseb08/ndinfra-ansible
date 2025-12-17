@@ -2,5 +2,6 @@
 - name: Set up ndoe to run as a Deluge server
   hosts: all
   roles:
-    - { role: deluge_setup, become: true }
     - { role: nfs_mounts, become: true } 
+    - { role: deluge_setup, become: true }
+    
