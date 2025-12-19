@@ -1,3 +1,11 @@
+---
+- name: Ensure the nfs-client package is installed (Debian/Ubuntu)
+  ansible.builtin.apt:
+    name: nfs-common
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
 - name: Mount NFS volume specified
   ansible.posix.mount:
     src: "{{ source }}"
