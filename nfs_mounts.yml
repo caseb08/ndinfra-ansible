@@ -1,0 +1,5 @@
+---
+- name: Set up NFS mount(s)
+  hosts: all
+  roles:
+    - { role: nfs_mounts, become: true }
